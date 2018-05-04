@@ -6,6 +6,7 @@ description 'Installs/Configures postgresql_package'
 long_description 'Installs/Configures postgresql_package'
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
+depends 'yum-epel', '~> 3.1.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
