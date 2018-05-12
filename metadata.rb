@@ -1,9 +1,9 @@
-name 'postgresql_package'
+name 'postgresql'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
 license 'All Rights Reserved'
-description 'Installs/Configures postgresql_package'
-long_description 'Installs/Configures postgresql_package'
+description 'Installs/Configures postgresql'
+long_description 'Installs/Configures postgresql'
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 depends 'yum-epel', '~> 3.1.0'
@@ -12,10 +12,10 @@ depends 'yum-epel', '~> 3.1.0'
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when
 # uploaded to a Supermarket.
 #
-# issues_url 'https://github.com/<insert_org_here>/postgresql_package/issues'
+# issues_url 'https://github.com/<insert_org_here>/postgresql/issues'
 
 # The `source_url` points to the development repository for this cookbook.  A
 # `View Source` link will be displayed on this cookbook's page when uploaded to
 # a Supermarket.
 #
-# source_url 'https://github.com/<insert_org_here>/postgresql_package'
+# source_url 'https://github.com/<insert_org_here>/postgresql'
