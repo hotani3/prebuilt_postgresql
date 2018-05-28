@@ -1,4 +1,10 @@
-module PostgreSQL
+#
+# Cookbook:: prebuilt_postgresql
+# Library:: version
+#
+# Copyright:: 2018, Hiroshi OTANI
+
+module PrebuiltPostgreSQL
   class Version
 
     attr_reader :major

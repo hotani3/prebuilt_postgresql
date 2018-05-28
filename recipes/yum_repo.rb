@@ -1,10 +1,11 @@
 #
-# Cookbook:: postgresql
+# Cookbook:: prebuilt_postgresql
 # Recipe:: yum_repo
 #
-# Copyright:: 2018, The Authors, All Rights Reserved.
-Chef::Recipe.send(:include, PostgreSQL::YumRepo)
-Chef::Resource.send(:include, PostgreSQL::YumRepo)
+# Copyright:: 2018, Hiroshi OTANI
+
+Chef::Recipe.send(:include, PrebuiltPostgreSQL::YumRepo)
+Chef::Resource.send(:include, PrebuiltPostgreSQL::YumRepo)
 
 # Refs: https://www.postgresql.org/download/linux/redhat/
 remote_file "#{Chef::Config[:file_cache_path]}/#{package_filename}" do

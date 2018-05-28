@@ -1,2 +1,2 @@
-# postgresql
-Chef cookbook to install prebuilt PostgreSQL server and client
+# prebuilt_postgresql
+Chef cookbook to install prebuilt PostgreSQL server or client

@@ -1,4 +1,10 @@
-module PostgreSQL
+#
+# Cookbook:: prebuilt_postgresql
+# Library:: server
+#
+# Copyright:: 2018, Hiroshi OTANI
+
+module PrebuiltPostgreSQL
   module Server
     def package_name
       version = Version.new(node[:cookbook_name][:version])

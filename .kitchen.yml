@@ -18,8 +18,8 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[postgresql::client]
-      - recipe[postgresql::server]
+      - recipe[prebuilt_postgresql::client]
+      - recipe[prebuilt_postgresql::server]
     verifier:
       inspec_tests:
         - test/smoke/default

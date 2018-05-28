@@ -1,6 +1,7 @@
 # # encoding: utf-8
 
-# Inspec test for recipe postgresql::default
+# Inspec test for recipe prebuilt_postgresql::default
+# Copyright:: 2018, Hiroshi OTANI
 
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/

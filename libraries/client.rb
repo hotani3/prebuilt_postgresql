@@ -1,4 +1,10 @@
-module PostgreSQL
+#
+# Cookbook:: prebuilt_postgresql
+# Library:: client
+#
+# Copyright:: 2018, Hiroshi OTANI
+
+module PrebuiltPostgreSQL
   module Client
     def package_name
       version = Version.new(node.default[:cookbook_name][:version])

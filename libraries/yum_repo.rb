@@ -1,4 +1,10 @@
-module PostgreSQL
+#
+# Cookbook:: prebuilt_postgresql
+# Library:: yum_repo
+#
+# Copyright:: 2018, Hiroshi OTANI
+
+module PrebuiltPostgreSQL
   module YumRepo
     def package_name
       case node[:platform]

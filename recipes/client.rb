@@ -1,11 +1,12 @@
 #
-# Cookbook:: postgresql
+# Cookbook:: prebuilt_postgresql
 # Recipe:: client
 #
-# Copyright:: 2018, The Authors, All Rights Reserved.
-include_recipe 'postgresql::yum_repo'
+# Copyright:: 2018, Hiroshi OTANI
 
-Chef::Recipe.send(:include, PostgreSQL::Client)
+include_recipe 'prebuilt_postgresql::yum_repo'
+
+Chef::Recipe.send(:include, PrebuiltPostgreSQL::Client)
 
 yum_package "#{package_name}" do
   action :install

@@ -1,12 +1,12 @@
 #
-# Cookbook:: postgresql
+# Cookbook:: prebuilt_postgresql
 # Spec:: default
 #
-# Copyright:: 2018, The Authors, All Rights Reserved.
+# Copyright:: 2018, Hiroshi OTANI
 
 require 'spec_helper'
 
-describe 'postgresql::default' do
+describe 'prebuilt_postgresql::default' do
   context 'When all attributes are default, on an Ubuntu 16.04' do
     let(:chef_run) do
       # for a complete list of available platforms and versions see:
