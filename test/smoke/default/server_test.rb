@@ -1,30 +1,10 @@
 # # encoding: utf-8
 
-# Inspec test for recipe prebuilt_postgresql::default
+# Inspec test for recipe prebuilt_postgresql::server
 # Copyright:: 2018, Hiroshi OTANI
 
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
-
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
-end
-
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
-end
-
-describe package('pgdg-centos96') do
-  it { should be_installed }
-end
-
-describe package('postgresql96') do
-  it { should be_installed }
-end
 
 describe package('postgresql96-server') do
   it { should be_installed }
@@ -38,17 +18,6 @@ end
 describe user('postgres') do
   it { should exist }
   its('shell') { should eq '/bin/bash' }
-end
-
-describe yum.repo('pgdg96') do
-  it { should exist }
-  it { should be_enabled }
-end
-
-describe command('psql -V') do
-  its('stdout') { should match(/^psql \(PostgreSQL\) 9.6/) }
-  its('stderr') { should eq '' }
-  its('exit_status') { should eq 0 }
 end
 
 describe command('sudo -i -u postgres psql -t -c "\du postgres"') do

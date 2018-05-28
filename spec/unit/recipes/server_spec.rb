@@ -1,17 +1,21 @@
 #
 # Cookbook:: prebuilt_postgresql
-# Spec:: default
+# Spec:: server
 #
 # Copyright:: 2018, Hiroshi OTANI
 
 require 'spec_helper'
 
-describe 'prebuilt_postgresql::default' do
-  context 'When all attributes are default, on an Ubuntu 16.04' do
+describe 'prebuilt_postgresql::server' do
+  context 'When all attributes are default, on an CentOS 7.4.1708' do
+    before do
+      stub_command("rpm -qa | grep -q '^pgdg-centos'").and_return(false)
+    end
+
     let(:chef_run) do
       # for a complete list of available platforms and versions see:
       # https://github.com/customink/fauxhai/blob/master/PLATFORMS.md
-      runner = ChefSpec::ServerRunner.new(platform: 'ubuntu', version: '16.04')
+      runner = ChefSpec::ServerRunner.new(platform: 'centos', version: '7.4.1708')
       runner.converge(described_recipe)
     end
 
