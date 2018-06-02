@@ -8,7 +8,7 @@ include_recipe 'prebuilt_postgresql::yum_repo'
 
 Chef::Recipe.send(:include, PrebuiltPostgreSQL::Client)
 
-yum_package "#{package_name}" do
+yum_package package_name do
   action :install
   version node[:cookbook_name][:version]
 end

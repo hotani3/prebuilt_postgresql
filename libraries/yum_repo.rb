@@ -5,11 +5,12 @@
 # Copyright:: 2018, Hiroshi OTANI
 
 module PrebuiltPostgreSQL
+  # Module for the 'yum_repo' recipe
   module YumRepo
     def package_name
       case node[:platform]
       when 'centos'
-        return 'pgdg-centos'
+        'pgdg-centos'
       end
     end
 
@@ -29,19 +30,24 @@ module PrebuiltPostgreSQL
       platform_version = Version.new(node[:platform_version])
       case node[:platform_family]
       when 'rhel'
+        yum_repo = 'https://download.postgresql.org/pub/repos/yum'
         case platform_version.major
         when 7
           # ex. rhel-7-x86_64
-          basename = [node[:platform_family], platform_version.major, node[:kernel][:machine]].join('-')
+          basename = [
+            node[:platform_family],
+            platform_version.major,
+            node[:kernel][:machine]
+          ].join('-')
           # ex. https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/
-          return "https://download.postgresql.org/pub/repos/yum/#{version.short}/redhat/#{basename}/"
+          return "#{yum_repo}/#{version.short}/redhat/#{basename}/"
         end
       end
     end
     private :source_base
 
     def source_url
-      return source_base + package_filename
+      source_base + package_filename
     end
   end
 end

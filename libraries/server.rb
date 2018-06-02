@@ -5,6 +5,7 @@
 # Copyright:: 2018, Hiroshi OTANI
 
 module PrebuiltPostgreSQL
+  # Module for the 'server' recipe
   module Server
     def package_name
       version = Version.new(node[:cookbook_name][:version])
@@ -41,7 +42,7 @@ module PrebuiltPostgreSQL
     private :setup_script_base
 
     def setup_script_path
-      return setup_script_base + setup_script_filename
+      setup_script_base + setup_script_filename
     end
 
     def service_name
@@ -53,6 +54,14 @@ module PrebuiltPostgreSQL
           return 'postgresql-9.6'
         end
       end
+    end
+
+    def encoding
+      node[:cookbook_name][:server][:encoding]
+    end
+
+    def locale
+      node[:cookbook_name][:server][:locale]
     end
   end
 end

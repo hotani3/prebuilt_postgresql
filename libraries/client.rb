@@ -5,6 +5,7 @@
 # Copyright:: 2018, Hiroshi OTANI
 
 module PrebuiltPostgreSQL
+  # Module for the 'client' recipe
   module Client
     def package_name
       version = Version.new(node[:cookbook_name][:version])

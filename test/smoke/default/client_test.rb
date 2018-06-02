@@ -1,5 +1,3 @@
-# # encoding: utf-8
-
 # Inspec test for recipe prebuilt_postgresql::client
 # Copyright:: 2018, Hiroshi OTANI
 

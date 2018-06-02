@@ -1,5 +1,3 @@
-# # encoding: utf-8
-
 # Inspec test for recipe prebuilt_postgresql::server
 # Copyright:: 2018, Hiroshi OTANI
 
@@ -44,7 +42,7 @@ describe directory('/var/lib/pgsql/9.6/data') do
   its('mode') { should cmp '0700' }
 end
 
-%w(pg_hba.conf pg_ident.conf postgresql.conf).each do |conf|
+%w[pg_hba.conf pg_ident.conf postgresql.conf].each do |conf|
   describe file("/var/lib/pgsql/9.6/data/#{conf}") do
     its('owner') { should eq 'postgres' }
     its('group') { should eq 'postgres' }

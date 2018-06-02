@@ -1,5 +1,3 @@
-# # encoding: utf-8
-
 # Inspec test for recipe prebuilt_postgresql::yum_repo
 # Copyright:: 2018, Hiroshi OTANI
 
