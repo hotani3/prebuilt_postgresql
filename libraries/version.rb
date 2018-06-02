@@ -15,9 +15,9 @@ module PrebuiltPostgreSQL
       @major = 0; @minor = 0; @patch = 0;
       case version.count('.')
       when 1
-        @major, @minor = version.split('.').map {|s| s.to_i}
+        @major, @minor = version.split('.').map { |s| s.to_i }
       when 2
-        @major, @minor, @patch = version.split('.').map {|s| s.to_i}
+        @major, @minor, @patch = version.split('.').map { |s| s.to_i }
       end
     end
 
