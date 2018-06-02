@@ -30,24 +30,36 @@ module PrebuiltPostgreSQL
       platform_version = Version.new(node[:platform_version])
       case node[:platform_family]
       when 'rhel'
-        yum_repo = 'https://download.postgresql.org/pub/repos/yum'
-        case platform_version.major
-        when 7
-          # ex. rhel-7-x86_64
-          basename = [
-            node[:platform_family],
-            platform_version.major,
-            node[:kernel][:machine]
-          ].join('-')
-          # ex. https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/
-          return "#{yum_repo}/#{version.short}/redhat/#{basename}/"
-        end
+        return source_base_for_rhel_family(platform_version, version)
       end
     end
     private :source_base
 
+    def source_base_for_rhel_family(platform_version, postgresql_version)
+      yum_repo = 'https://download.postgresql.org/pub/repos/yum'
+      case platform_version.major
+      when 7
+        # ex. rhel-7-x86_64
+        basename = [
+          node[:platform_family],
+          platform_version.major,
+          node[:kernel][:machine]
+        ].join('-')
+        # ex. https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64
+        source_base = [
+          yum_repo,
+          postgresql_version.short,
+          'redhat',
+          basename
+        ].join('/')
+        return source_base
+      end
+    end
+    private :source_base_for_rhel_family
+
     def source_url
-      source_base + package_filename
+      # ex. https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+      [source_base, package_filename].join('/')
     end
   end
 end
