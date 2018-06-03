@@ -1,5 +1,6 @@
 # Description
-This cookbook installs prebuilt PostgreSQL client or server.<br/>
+This cookbook installs prebuilt PostgreSQL client or server.
+
 Installation steps are as follows.<br/>
 https://www.postgresql.org/download/linux/redhat/
 
@@ -29,8 +30,7 @@ https://www.postgresql.org/download/linux/redhat/
 | node['prebuilt_postgresql']['server']['locale'] | String | "C" | Default database locale |
 
 # Usage
-## Vagrant with Omnibus & Berkshelf plugin
-
+## Integrates with Vagrant (Omnibus & Berkshelf plugins are required)
 #### chef-repo/Berksfile
 ```
 source "https://supermarket.chef.io"
@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-## Your Chef cookbook
+## Integrates with your cookbook
 #### Berksfile
 ```
 source "https://supermarket.chef.io"
@@ -64,6 +64,26 @@ cookbook "prebuilt_postgresql"
 metadata
 ```
 
+Refer to recipes in your role file,
+#### roles/database.json
+```
+{
+  "name": "database",
+  "description": "PostgreSQL database server",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+  },
+  "run_list": [
+    "recipe[prebuilt_postgresql::client]"
+    "recipe[prebuilt_postgresql::server]"
+  ]
+}
+```
+
+Or include recipes in your recipe file.
 #### recipes/default.rb
 ```
 include_recipe "prebuilt_postgresql::client"
