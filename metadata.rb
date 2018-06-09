@@ -3,9 +3,9 @@ maintainer 'Hiroshi OTANI'
 maintainer_email 'hotani3@gmail.com'
 license 'MIT'
 description 'Installs prebuilt PostgreSQL'
-long_description 'Installs prebuilt PostgreSQL server or client'
+long_description 'Installs prebuilt PostgreSQL client or server'
 version '0.1.0'
-chef_version '>= 13.4' if respond_to?(:chef_version)
+chef_version '>= 13.1' if respond_to?(:chef_version)
 
 supports 'centos', '>= 7.0'
 

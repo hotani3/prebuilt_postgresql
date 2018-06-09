@@ -12,7 +12,7 @@ https://www.postgresql.org/download/linux/redhat/
 * CentOS 7
 
 ## Chef
-* Chef 13.4 or later
+* Chef 13.1 or later
 
 # Recipes & Attributes
 ## Recipes
@@ -26,8 +26,8 @@ https://www.postgresql.org/download/linux/redhat/
 | Attribute | Type | Default value | Description |
 | :-------- | :--- | :------------ | :---------- |
 | node['prebuilt_postgresql']['version'] | String | "9.6.9" | PostgreSQL client or server version |
-| node['prebuilt_postgresql']['server']['encoding'] | String | "UTF8" | Default database encoding |
-| node['prebuilt_postgresql']['server']['locale'] | String | "C" | Default database locale |
+| node['prebuilt_postgresql']['server']['encoding'] | String | "UTF8" | Database default encoding |
+| node['prebuilt_postgresql']['server']['locale'] | String | "C" | Database default locale |
 
 # Usage
 ## Integrates with Vagrant (Omnibus & Berkshelf plugins are required)
@@ -41,7 +41,7 @@ cookbook "prebuilt_postgresql"
 #### Vagrantfile
 ```
 Vagrant.configure("2") do |config|
-  config.omnibus.chef_version = "13.6.4"
+  config.omnibus.chef_version = "14.1.12"
   config.berkshelf.berksfile_path = "chef-repo/Berksfile"
   config.vm.provision :chef_solo do |chef|
     chef.add_recipe "prebuilt_postgresql::client"
@@ -61,10 +61,11 @@ end
 source "https://supermarket.chef.io"
 
 cookbook "prebuilt_postgresql"
+
 metadata
 ```
 
-Refer to recipes in your role file,
+Refer to the recipes in your role file,
 #### roles/database.json
 ```
 {
@@ -83,7 +84,7 @@ Refer to recipes in your role file,
 }
 ```
 
-Or include recipes in your recipe file.
+Or include the recipes in your recipe file.
 #### recipes/default.rb
 ```
 include_recipe "prebuilt_postgresql::client"
