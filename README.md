@@ -12,7 +12,7 @@ https://www.postgresql.org/download/linux/redhat/
 * CentOS 7
 
 ## Chef
-* Chef 14.0 or later
+* Chef 14.1 or later
 
 # Recipes & Attributes
 ## Recipes
