@@ -8,7 +8,7 @@ module PrebuiltPostgreSQL
   # Module for the 'client' recipe
   module Client
     def package_name
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       case node[:platform_family]
       when 'rhel'
         case version.short

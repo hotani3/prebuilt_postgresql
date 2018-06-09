@@ -8,7 +8,7 @@ module PrebuiltPostgreSQL
   # Module for the 'server' recipe
   module Server
     def package_name
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       case node[:platform_family]
       when 'rhel'
         case version.short
@@ -19,7 +19,7 @@ module PrebuiltPostgreSQL
     end
 
     def setup_script_filename
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       case node[:platform_family]
       when 'rhel'
         case version.short
@@ -30,7 +30,7 @@ module PrebuiltPostgreSQL
     end
 
     def setup_script_base
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       case node[:platform_family]
       when 'rhel'
         case version.short
@@ -46,7 +46,7 @@ module PrebuiltPostgreSQL
     end
 
     def service_name
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       case node[:platform_family]
       when 'rhel'
         case version.short
@@ -57,11 +57,11 @@ module PrebuiltPostgreSQL
     end
 
     def encoding
-      node[:cookbook_name][:server][:encoding]
+      node['prebuilt_postgresql']['server']['encoding']
     end
 
     def locale
-      node[:cookbook_name][:server][:locale]
+      node['prebuilt_postgresql']['server']['locale']
     end
   end
 end

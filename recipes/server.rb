@@ -11,7 +11,7 @@ Chef::Resource.send(:include, PrebuiltPostgreSQL::Server)
 
 yum_package package_name do
   action :install
-  version node[:cookbook_name][:version]
+  version node['prebuilt_postgresql']['version']
 end
 
 execute setup_script_filename do

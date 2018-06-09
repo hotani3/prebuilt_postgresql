@@ -1,3 +1,3 @@
-default[:cookbook_name][:version] = '9.6.9'
-default[:cookbook_name][:server][:encoding] = 'UTF8'
-default[:cookbook_name][:server][:locale] = 'C'
+default['prebuilt_postgresql']['version'] = '9.6.9'
+default['prebuilt_postgresql']['server']['encoding'] = 'UTF8'
+default['prebuilt_postgresql']['server']['locale'] = 'C'

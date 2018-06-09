@@ -15,7 +15,7 @@ module PrebuiltPostgreSQL
     end
 
     def package_filename
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       case node[:platform]
       when 'centos'
         case version.short
@@ -26,7 +26,7 @@ module PrebuiltPostgreSQL
     end
 
     def source_base
-      version = Version.new(node[:cookbook_name][:version])
+      version = Version.new(node['prebuilt_postgresql']['version'])
       platform_version = Version.new(node[:platform_version])
       case node[:platform_family]
       when 'rhel'

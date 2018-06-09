@@ -24,3 +24,5 @@ suites:
       inspec_tests:
         - test/smoke/default
     attributes:
+      prebuilt_postgresql:
+        version: 9.6.8

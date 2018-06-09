@@ -12,7 +12,7 @@ https://www.postgresql.org/download/linux/redhat/
 * CentOS 7
 
 ## Chef
-* Chef 13.1 or later
+* Chef 14.0 or later
 
 # Recipes & Attributes
 ## Recipes
@@ -74,6 +74,9 @@ Refer to the recipes in your role file,
   "chef_type": "role",
   "json_class": "Chef::Role",
   "default_attributes": {
+    "prebuilt_postgresql": {
+      "version": "9.6.9"
+    }
   },
   "override_attributes": {
   },

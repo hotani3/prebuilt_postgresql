@@ -10,5 +10,5 @@ Chef::Recipe.send(:include, PrebuiltPostgreSQL::Client)
 
 yum_package package_name do
   action :install
-  version node[:cookbook_name][:version]
+  version node['prebuilt_postgresql']['version']
 end
